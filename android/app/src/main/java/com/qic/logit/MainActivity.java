@@ -1,4 +1,4 @@
-package com.comic;
+package com.qic.logit;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
@@ -18,7 +18,7 @@ protected void onCreate(Bundle savedInstanceState) {
    */
   @Override
   protected String getMainComponentName() {
-    return "comic";
+    return "LOGit";
   }
 
   /**
