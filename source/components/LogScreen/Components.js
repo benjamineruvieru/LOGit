@@ -15,9 +15,11 @@ import Swipeable from 'react-native-gesture-handler/Swipeable';
 import {IconButton, NormalText, ButtonView} from '../Components';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 import {createThumbnail} from 'react-native-create-thumbnail';
+import {calculateRatio} from '../../constants/Functions';
 
 export const FlatListBody = props => {
   let height, text;
+  console.log(props.data);
 
   const SaveLog = () => {
     if (text) {
@@ -31,7 +33,7 @@ export const FlatListBody = props => {
   };
   const [uri, setUri] = useState([]);
   useEffect(() => {
-    console.log(uri);
+    // console.log(uri);
   }, [uri]);
   const logview_dime = layout => {
     height = layout.height;
@@ -76,14 +78,14 @@ export const FlatListBody = props => {
       includeExtra: true,
       saveToPhotos: true,
     });
-    console.log(result);
+    // console.log(result);
     if (result.assets[0].type.includes('video')) {
       createThumbnail({
         url: result.assets[0].uri,
         timeStamp: 10000,
       })
         .then(response => {
-          console.log(response);
+          //   console.log(response);
           const tmp = [...uri];
           tmp.push({
             path: response.path,
@@ -97,6 +99,9 @@ export const FlatListBody = props => {
       return;
     }
     const tmp = [...uri];
+    console.log(
+      calculateRatio(result.assets[0].height, result.assets[0].width),
+    );
     tmp.push({
       path: result.assets[0].uri,
       height: result.assets[0].height,

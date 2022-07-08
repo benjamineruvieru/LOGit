@@ -14,9 +14,9 @@ import {fontConfig} from '../constants/Functions';
 import {useNavigation} from '@react-navigation/native';
 import mainimage from '../assets/images/sticky-note.png';
 import {SCREEN_WIDTH} from '../constants/Variables';
+import {useEffect} from 'react';
 const HomeScreen = () => {
   const navigation = useNavigation();
-
   return (
     <BackView>
       <Tab style={{justifyContent: 'flex-end'}}>

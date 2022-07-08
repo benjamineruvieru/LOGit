@@ -44,3 +44,21 @@ export const fontConfig = {
     },
   },
 };
+
+export function calculateRatio(num_1, num_2) {
+  // for (num = num_2; num > 1; num--) {
+  //   if (num_1 % num == 0 && num_2 % num == 0) {
+  //     num_1 = num_1 / num;
+  //     num_2 = num_2 / num;
+  //   }
+  // }
+  let num;
+  if (num_2 > num_1) {
+    num = num_2 / num_1;
+  } else {
+    num = num_1 / num_2;
+  }
+
+  var ratio = num_1 / num + ':' + num_2 / num;
+  return ratio;
+}
